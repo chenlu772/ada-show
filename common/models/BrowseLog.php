@@ -44,8 +44,8 @@ class BrowseLog extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'page_url' => 'Page Url',
-            'page_referrer' => 'Page Referrer',
+            'page_url' => '当前访问',
+            'page_referrer' => '来自',
             'browser' => '浏览器',
             'user_ip' => '访问者IP',
             'remote_port' => '源端口号',
