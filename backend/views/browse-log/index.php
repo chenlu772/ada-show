@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             [
-                'label' =>'来自',
+                'label' =>'当前访问',
                 'format'=> 'raw',
                 'value' => function($data){
                     if(mb_strlen($data->page_url, 'utf-8') > 121){
