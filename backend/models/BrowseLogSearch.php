@@ -55,8 +55,8 @@ class BrowseLogSearch extends BrowseLog
 
         $this->load($params);
 
-        $this->create_time_b = !empty($params['BrowseLogSearch']['create_time_b'])?date('YmdHis', strtotime($params['BrowseLogSearch']['create_time_b'])):'';
-        $this->create_time_e = !empty($params['BrowseLogSearch']['create_time_e'])?date('YmdHis', strtotime($params['BrowseLogSearch']['create_time_e'])):'';
+        $this->create_time_b = !empty($params['BrowseLogSearch']['create_time_b'])?$params['BrowseLogSearch']['create_time_b']:'';
+        $this->create_time_e = !empty($params['BrowseLogSearch']['create_time_e'])?$params['BrowseLogSearch']['create_time_e']:'';
 
 
         if (!$this->validate()) {
@@ -78,10 +78,10 @@ class BrowseLogSearch extends BrowseLog
             ->andFilterWhere(['like', 'user_ip', $this->user_ip]);
 
         if(!empty($this->create_time_b)){
-            $query->andFilterWhere(['>', 'create_time', $this->create_time_b]);
+            $query->andFilterWhere(['>', 'create_time', date('YmdHis', strtotime($this->create_time_b))]);
         }
         if(!empty($this->create_time_e)){
-            $query->andFilterWhere(['<', 'create_time', $this->create_time_e]);
+            $query->andFilterWhere(['<', 'create_time', date('YmdHis', strtotime($this->create_time_e))]);
         }
 
         return $dataProvider;
