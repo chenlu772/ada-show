@@ -6,12 +6,16 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use backend\models\BrowseLog;
+use yii\helpers\StringHelper;
 
 /**
  * BrowseLogSearch represents the model behind the search form about `backend\models\BrowseLog`.
  */
 class BrowseLogSearch extends BrowseLog
 {
+    public $create_time_b;
+    public $create_time_e;
+
     /**
      * @inheritdoc
      */
@@ -51,6 +55,10 @@ class BrowseLogSearch extends BrowseLog
 
         $this->load($params);
 
+        $this->create_time_b = !empty($params['BrowseLogSearch']['create_time_b'])?date('YmdHis', strtotime($params['BrowseLogSearch']['create_time_b'])):'';
+        $this->create_time_e = !empty($params['BrowseLogSearch']['create_time_e'])?date('YmdHis', strtotime($params['BrowseLogSearch']['create_time_e'])):'';
+
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -68,6 +76,13 @@ class BrowseLogSearch extends BrowseLog
             ->andFilterWhere(['like', 'page_referrer', $this->page_referrer])
             ->andFilterWhere(['like', 'browser', $this->browser])
             ->andFilterWhere(['like', 'user_ip', $this->user_ip]);
+
+        if(!empty($this->create_time_b)){
+            $query->andFilterWhere(['>', 'create_time', $this->create_time_b]);
+        }
+        if(!empty($this->create_time_e)){
+            $query->andFilterWhere(['<', 'create_time', $this->create_time_e]);
+        }
 
         return $dataProvider;
     }

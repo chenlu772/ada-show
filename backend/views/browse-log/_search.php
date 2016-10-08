@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use dosamigos\datetimepicker\DateTimePicker;
 /* @var $this yii\web\View */
 /* @var $model backend\models\BrowseLogSearch */
 /* @var $form yii\widgets\ActiveForm */
 
-use dosamigos\datepicker\DatePicker;
+
 ?>
 
 <div class="browse-log-search">
@@ -28,18 +28,33 @@ use dosamigos\datepicker\DatePicker;
 
     <?php // echo $form->field($model, 'remote_port') ?>
 
-    <?= $form->field($model, 'create_time')->widget(
-        DatePicker::className(), [
-        // inline too, not bad
-        'inline' => true,
-        // modify template for custom rendering
-        'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
-        'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'dd-M-yyyy'
-        ]
-    ]); ?>
-
+    <?= $form->field($model, 'create_time_b')->widget(DateTimePicker::className(),
+        [
+            'template'=>"{input}{reset}{button}",
+            'clientOptions' => [
+                'autoclose' => true,
+                'linkFormat' => 'yyyy-MM-dd', // if inline = true
+                'format' => 'yyyy-mm-dd', // if inline = false
+                'todayBtn' => true,
+                'pickerPosition'=>"bottom-left",
+                'language'=>'zh-CN',
+                'minView'=>'month'
+            ]
+        ])->label('访问时间'); ?>
+    -
+    <?= $form->field($model, 'create_time_e')->widget(DateTimePicker::className(),
+        [
+            'template'=>"{input}{reset}{button}",
+            'clientOptions' => [
+                'autoclose' => true,
+                'linkFormat' => 'yyyy-MM-dd', // if inline = true
+                'format' => 'yyyy-mm-dd', // if inline = false
+                'todayBtn' => true,
+                'pickerPosition'=>"bottom-left",
+                'language'=>'zh-CN',
+                'minView'=>'month'
+            ]
+        ])->label(false); ?>
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
