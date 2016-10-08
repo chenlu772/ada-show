@@ -78,10 +78,10 @@ class BrowseLogSearch extends BrowseLog
             ->andFilterWhere(['like', 'user_ip', $this->user_ip]);
 
         if(!empty($this->create_time_b)){
-            $query->andFilterWhere(['>', 'create_time', date('YmdHis', strtotime($this->create_time_b))]);
+            $query->andFilterWhere(['>=', 'create_time', date('YmdHis', strtotime($this->create_time_b))]);
         }
         if(!empty($this->create_time_e)){
-            $query->andFilterWhere(['<', 'create_time', date('YmdHis', strtotime($this->create_time_e))]);
+            $query->andFilterWhere(['<=', 'create_time', date('YmdHis', strtotime($this->create_time_e))]);
         }
 
         return $dataProvider;
