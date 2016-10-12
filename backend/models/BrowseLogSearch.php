@@ -51,6 +51,14 @@ class BrowseLogSearch extends BrowseLog
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+			'pagination'=>[
+                'pageSize'=>20,
+            ],
+            'sort'=>[
+                'defaultOrder'=>[
+                    'create_time'=>SORT_DESC
+                ]
+            ],
         ]);
 
         $this->load($params);
