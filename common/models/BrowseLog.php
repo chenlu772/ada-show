@@ -22,7 +22,7 @@ class BrowseLog extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'browse_log';
+        return 'b_browse_log';
     }
 
     /**
