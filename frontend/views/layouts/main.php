@@ -11,6 +11,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+$this->title = 'Ada 绣';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
