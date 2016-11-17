@@ -15,6 +15,20 @@ return [
         'admin' => [
             'class' => 'mdm\admin\Module',
         ],
+        'gii'=>[
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['127.0.0.1', '::1'],
+            'generators' => [
+                'crud' => [ //生成器名称
+                    'class' => 'yii\gii\generators\crud\Generator',
+                    'templates' => [ //设置我们自己的模板
+                        //模板名 => 模板路径
+                        'myCrud' => '@backend/generators/crud/default',
+                    ],
+                ],
+
+            ]
+        ],
     ],
     'aliases' => [
         '@mdm/admin' => '@vendor/mdmsoft/yii2-admin',
@@ -23,6 +37,7 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
+            'gii/*',
         ]
     ],
 

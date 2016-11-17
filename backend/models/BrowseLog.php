@@ -16,6 +16,10 @@ use Yii;
 class BrowseLog extends \common\models\BrowseLog
 {
 
-
+    public function afterFind()
+    {
+        $this->create_time = date('Y-m-d H:i:s', strtotime($this->create_time));
+        parent::afterFind();
+    }
 
 }
