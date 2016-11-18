@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\BrowseLogSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '访问记录';
+$this->title = '浏览记录';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="browse-log-index">
