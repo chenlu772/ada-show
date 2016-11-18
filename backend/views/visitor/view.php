@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\AccessLog */
+/* @var $model backend\models\Visitor */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Access Logs', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Visitors', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="access-log-view">
+<div class="visitor-view">
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -29,6 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'user_id',
             'occupation',
+            'true_name',
+            'mobile',
+            'email:email',
             'create_time',
         ],
     ]) ?>

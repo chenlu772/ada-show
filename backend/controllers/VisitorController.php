@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\AccessLog;
-use backend\models\AccessLogSearch;
+use backend\models\Visitor;
+use backend\models\VisitorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AccessLogController implements the CRUD actions for AccessLog model.
+ * VisitorController implements the CRUD actions for Visitor model.
  */
-class AccessLogController extends Controller
+class VisitorController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class AccessLogController extends Controller
     }
 
     /**
-     * Lists all AccessLog models.
+     * Lists all Visitor models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AccessLogSearch();
+        $searchModel = new VisitorSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class AccessLogController extends Controller
     }
 
     /**
-     * Displays a single AccessLog model.
+     * Displays a single Visitor model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class AccessLogController extends Controller
     }
 
     /**
-     * Creates a new AccessLog model.
+     * Creates a new Visitor model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new AccessLog();
+        $model = new Visitor();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class AccessLogController extends Controller
     }
 
     /**
-     * Updates an existing AccessLog model.
+     * Updates an existing Visitor model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class AccessLogController extends Controller
     }
 
     /**
-     * Deletes an existing AccessLog model.
+     * Deletes an existing Visitor model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class AccessLogController extends Controller
     }
 
     /**
-     * Finds the AccessLog model based on its primary key value.
+     * Finds the Visitor model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return AccessLog the loaded model
+     * @return Visitor the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = AccessLog::findOne($id)) !== null) {
+        if (($model = Visitor::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

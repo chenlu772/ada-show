@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\AccessLog;
+use backend\models\Visitor;
 
 /**
- * AccessLogSearch represents the model behind the search form about `backend\models\AccessLog`.
+ * VisitorSearch represents the model behind the search form about `backend\models\Visitor`.
  */
-class AccessLogSearch extends AccessLog
+class VisitorSearch extends Visitor
 {
     /**
      * @inheritdoc
@@ -18,7 +18,8 @@ class AccessLogSearch extends AccessLog
     public function rules()
     {
         return [
-            [['id', 'user_id', 'occupation', 'create_time'], 'integer'],
+            [['id', 'user_id', 'occupation', 'mobile', 'create_time'], 'integer'],
+            [['true_name', 'email'], 'safe'],
         ];
     }
 
@@ -40,7 +41,7 @@ class AccessLogSearch extends AccessLog
      */
     public function search($params)
     {
-        $query = AccessLog::find();
+        $query = Visitor::find();
 
         // add conditions that should always apply here
 
@@ -61,8 +62,12 @@ class AccessLogSearch extends AccessLog
             'id' => $this->id,
             'user_id' => $this->user_id,
             'occupation' => $this->occupation,
+            'mobile' => $this->mobile,
             'create_time' => $this->create_time,
         ]);
+
+        $query->andFilterWhere(['like', 'true_name', $this->true_name])
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

@@ -4,15 +4,13 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\AccessLogSearch */
+/* @var $searchModel backend\models\VisitorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '访问记录';
+$this->title = 'Visitors';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="access-log-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="visitor-index">
     <div class="box box-success">
         <div class="box-body">
             <?php echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,7 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'user_id',
             'occupation',
-            'create_time',
+            'true_name',
+            'mobile',
+            // 'email:email',
+            // 'create_time',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
