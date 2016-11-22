@@ -1,10 +1,7 @@
-*{
-	padding: 0;
-	margin: 0;
-}
+
 #web{
 	width: 1000px;
-	margin: 0 auto;
+	padding-top: 60px;
 	/*background: aqua;*/
 }
 #banner{
