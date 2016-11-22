@@ -19,9 +19,13 @@ $this->title = 'CH-LU';
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="<?=Yii::getAlias('@static')?>/css/footer.css">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?php if (isset($this->blocks['css'])): ?>
+        <?= $this->blocks['css'] ?>
+    <?php endif; ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -29,7 +33,7 @@ $this->title = 'CH-LU';
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('favicon.ico'),
+        'brandLabel' => Html::img(Yii::getAlias('@static').'/img/favicon.ico'),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -68,16 +72,16 @@ $this->title = 'CH-LU';
         <?= $content ?>
     </div>
 </div>
+<!-- 加载底部 -->
+<?= $this->render(
+    'footer.php'
+)?>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; CH-LU <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
+<?php if (isset($this->blocks['js'])): ?>
+    <?= $this->blocks['js'] ?>
+<?php endif; ?>
 </body>
 </html>
 <?php $this->endPage() ?>

@@ -2,52 +2,33 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = '';
 ?>
+<?php $this->beginBlock('css');?>
+<link rel="stylesheet" type="text/css" href="<?=Yii::getAlias('@static')?>/css/index.css">
+<?php $this->endBlock();?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+    <div id="web">
+        <div id="banner">
+            <img src="<?=Yii::getAlias('@static')?>/img/art_ch-lu.png" />
+        </div>
+        <nav id="index-nav">
+            <a href="?">栏目一</a>
+            <a href="?">栏目二</a>
+            <a href="?">栏目三</a>
+        </nav>
+        <div id="main">
+            <p><a href="#">自我陈述</a></p>
+            <p><a href="#">个性展示</a></p>
+            <p><a href="#">我的博客</a></p>
+            <p><a href="#">分享空间</a></p>
+            <p><a href="#">友情链接</a></p>
         </div>
 
     </div>
+
 </div>
+<?php $this->beginBlock('js');?>
+<script src="<?=Yii::getAlias('@static')?>/js/jquery-3.1.1.js"></script>
+<script src="<?=Yii::getAlias('@static')?>/js/index.js"></script>
+<?php $this->endBlock();?>

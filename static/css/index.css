@@ -1,0 +1,48 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+#web{
+	width: 1000px;
+	margin: 0 auto;
+	/*background: aqua;*/
+}
+#banner{
+	text-align: center;
+	border: dashed #ccc 1px;
+}
+#banner img{
+	height: 80px;	
+}
+
+#index-nav{
+	margin-top: 20px;
+	padding-left: 30%;
+	border: solid #ccc 1px;
+	border-radius: 5px;
+	font-size: 20px;
+	overflow: hidden;
+	background: url(../img/8.jpg);
+}
+#index-nav a{
+	display: block;
+	float: left;
+	text-decoration: none;
+	width: 80px;
+	text-align: center;
+	margin: 0 10px;
+	cursor: pointer;
+}
+#main{
+	text-align: center;
+	height: 400px;
+	padding-top: 100px;
+}
+#main p{
+	height: 40px;
+	line-height: 40px;
+}
+#main p a{
+	text-decoration: none;
+	color: #000;
+}

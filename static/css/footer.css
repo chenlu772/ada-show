@@ -1,0 +1,16 @@
+#footer{
+    text-align: center;
+}
+#footer a{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 10px;
+    color: #666;
+}
+#footer p{
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
+}
