@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\SendMailLog;
 use frontend\models\BrowseLog;
 use Yii;
 use yii\base\InvalidParamException;
@@ -119,6 +120,8 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+                $sendModel = new SendMailLog();
+                $sendModel->autoSave($model);
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
             } else {
                 Yii::$app->session->setFlash('error', 'There was an error sending email.');
