@@ -1,2 +1,2 @@
 <?php
-Yii::setAlias('@static', 'http://ch-lu.com/static');
+Yii::setAlias('@static', 'http://static.ch-lu.com');
