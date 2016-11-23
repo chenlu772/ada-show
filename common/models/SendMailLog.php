@@ -31,7 +31,7 @@ class SendMailLog extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'name', 'email', 'subject', 'body'], 'required'],
-            [['id', 'create_time'], 'integer'],
+            [['id', 'user_id', 'create_time'], 'integer'],
             [['name'], 'string', 'max' => 10],
             [['email'], 'string', 'max' => 32],
             [['subject'], 'string', 'max' => 64],
@@ -55,13 +55,14 @@ class SendMailLog extends \yii\db\ActiveRecord
     }
 
 
-    public function autoSave($model){
+    public function autoSave($model, $user_id){
 
         foreach($model as $key=>$value){
             if(in_array($key, array_values($this->attributes()))){
                 $this->$key = $value;
             }
         }
+        $this->user_id = $user_id;
         $this->create_time = date('YmdHis');
         $this->save(false);
     }

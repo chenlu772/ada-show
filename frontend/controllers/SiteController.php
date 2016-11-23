@@ -121,8 +121,9 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 $sendModel = new SendMailLog();
-                $sendModel->autoSave($model);
+                $sendModel->autoSave($model, isset(Yii::$app->user->identity->id)?Yii::$app->user->identity->id:0);
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                return $this->goHome();
             } else {
                 Yii::$app->session->setFlash('error', 'There was an error sending email.');
             }
