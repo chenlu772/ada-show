@@ -122,10 +122,10 @@ class SiteController extends Controller
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 $sendModel = new SendMailLog();
                 $sendModel->autoSave($model, isset(Yii::$app->user->identity->id)?Yii::$app->user->identity->id:0);
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                Yii::$app->session->setFlash('success', '感谢您联系我们。我们将尽快回复您。');
                 return $this->goHome();
             } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+                Yii::$app->session->setFlash('error', '发送电子邮件有一个错误。');
             }
 
             return $this->refresh();
