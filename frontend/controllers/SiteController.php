@@ -2,11 +2,9 @@
 namespace frontend\controllers;
 
 use common\models\SendMailLog;
-use frontend\models\BrowseLog;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -18,8 +16,9 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
+
     /**
      * @inheritdoc
      */
@@ -90,6 +89,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+            Yii::$app->session->set(Yii::$app->params['username'], Yii::$app->user->identity->username);
             return $this->goBack();
         } else {
             return $this->render('login', [
@@ -121,7 +122,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 $sendModel = new SendMailLog();
-                $sendModel->autoSave($model, isset(Yii::$app->user->identity->id)?Yii::$app->user->identity->id:0);
+                $sendModel->autoSave($model, $this->user_id);
                 Yii::$app->session->setFlash('success', '感谢您联系我们。我们将尽快回复您。');
                 return $this->goHome();
             } else {
@@ -216,9 +217,4 @@ class SiteController extends Controller
         ]);
     }
 
-    public function afterAction($action, $result)
-    {
-        (new BrowseLog())->saveLog();
-        return parent::afterAction($action, $result);
-    }
 }

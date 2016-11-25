@@ -17,6 +17,20 @@ use Yii;
  */
 class Visitor extends \yii\db\ActiveRecord
 {
+
+    public static $OCCUPATION = [
+        '0' => '',
+        '1' => 'HR',
+        '2' => '开发',
+        '3' => '测试',
+        '4' => '产品',
+        '5' => '猎头',
+        '6' => '主管',
+        '7' => '老板',
+        '8' => '其他',
+    ];
+
+
     /**
      * @inheritdoc
      */
@@ -32,8 +46,10 @@ class Visitor extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'occupation', 'mobile', 'create_time'], 'integer'],
-            [['occupation', 'create_time'], 'required'],
-            [['true_name', 'email'], 'string', 'max' => 255],
+            [['occupation'], 'required'],
+            [['true_name'], 'string', 'max' => 32],
+            [['email'], 'string', 'max' => 64],
+            [['message'], 'string', 'max' => 225],
         ];
     }
 
@@ -46,9 +62,10 @@ class Visitor extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => '用户ID，对应user表的id字段',
             'occupation' => '职业',
-            'true_name' => 'True Name',
-            'mobile' => 'Mobile',
-            'email' => 'Email',
+            'true_name' => '称呼',
+            'mobile' => '手机号码',
+            'email' => '邮件地址',
+            'message' => '留言',
             'create_time' => 'Create Time',
         ];
     }

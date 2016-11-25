@@ -15,5 +15,10 @@ use Yii;
 class Visitor extends \common\models\Visitor
 {
 
+    public function beforeSave($insert)
+    {
+        $this->create_time = date('YmdHis');
+        return parent::beforeSave($insert);
+    }
 
 }

@@ -1,0 +1,20 @@
+#web ul {
+
+}
+#web ul li{
+    list-style: none;
+    width: 20%;
+    height: 100px;
+    line-height: 100px;
+    border: solid #999 1px;
+    float: left;
+    margin-right: 4%;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 3%;
+
+}
+#web h1{
+    text-align: center;
+    margin: 50px auto;
+}
