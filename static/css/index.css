@@ -1,8 +1,6 @@
 
 #web{
-	width: 1000px;
 	padding-top: 60px;
-	/*background: aqua;*/
 }
 #banner{
 	text-align: center;
@@ -13,23 +11,31 @@
 }
 
 #index-nav{
+/*	margin: 0 auto;*/
 	margin-top: 20px;
-	padding-left: 30%;
-	border: solid #ccc 1px;
-	border-radius: 5px;
-	font-size: 20px;
+/*	padding-left: 30%;*/
+/*	border: solid #ccc 1px;
+	border-radius: 5px;*/
 	overflow: hidden;
-	background: url(../img/8.jpg);
-}
-#index-nav a{
-	display: block;
-	float: left;
-	text-decoration: none;
-	width: 80px;
+/*	background: url(../img/8.jpg);*/
+/*	background-color: #9ad717;*/
 	text-align: center;
-	margin: 0 10px;
-	cursor: pointer;
 }
+.ring{
+/*	float: left;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+
+	cursor: pointer;
+	line-height: 80px;
+	text-align: center;*/
+/*	background-color: #bce95a;*/
+	margin: 0 30px 0 30px;
+	font-size: 16px;
+	color: #0c0c0c;
+}
+
 #main{
 	text-align: center;
 	height: 400px;

@@ -10,17 +10,17 @@ $this->title = '';
 <div class="site-index">
     <div id="web">
         <div id="banner">
-            <img src="<?=Yii::getAlias('@static')?>/img/art_ch-lu.png" />
+            <img src="<?=Yii::getAlias('@static')?>/img/ch-lu.png" />
         </div>
-        <nav id="index-nav">
-            <a href="?">栏目一</a>
-            <a href="?">栏目二</a>
-            <a href="?">栏目三</a>
-        </nav>
+        <div id="index-nav">
+            <a href="?"><span class="ring">栏目一</span></a>
+            <a href="?"><span class="ring">栏目二</span></a>
+            <a href="?"><span class="ring">栏目三</span></a>
+        </div>
         <div id="main">
             <p><a href="#">自我陈述</a></p>
             <p><a href="#">个性展示</a></p>
-            <p><a href="#">我的博客</a></p>
+            <p><a href="http://blog.csdn.net/ch_lu" target="_blank">我的博客</a></p>
             <p><a href="#">分享空间</a></p>
             <p><a href="#">友情链接</a></p>
         </div>

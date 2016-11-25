@@ -1,10 +1,10 @@
 $(function(){
 	$('#main p a').mouseover(function(){
-		$(this).css('color','#2292DD');
-		$(this).animate({fontSize:'22px'},100)
+		$(this).css('color','#111');
+		$(this).animate({fontSize:'18px'},100)
 	});
 	$('#main p a').mouseout(function(){
-		$(this).css('color','#000');
-		$(this).animate({fontSize:'16px'},10)
+		$(this).css('color','#555');
+		$(this).animate({fontSize:'14px'},10)
 	});
 });
