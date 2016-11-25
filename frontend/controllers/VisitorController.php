@@ -36,7 +36,7 @@ class VisitorController extends BaseController {
                 $occupation = 0;
             }
             $model->occupation = $occupation;
-            return $this->render('fill-form', [
+            return $this->render('form', [
                 'model' => $model,
             ]);
         }

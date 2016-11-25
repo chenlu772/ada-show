@@ -49,6 +49,7 @@ class Visitor extends \yii\db\ActiveRecord
             [['occupation'], 'required'],
             [['true_name'], 'string', 'max' => 32],
             [['email'], 'string', 'max' => 64],
+            ['email', 'email'],
             [['message'], 'string', 'max' => 225],
         ];
     }

@@ -18,9 +18,9 @@ $this->title = '您愿意留下您的联系方式吗？'
 
     <h3><?= Html::encode($this->title) ?></h3>
 
-    <?= $form->field($model, 'true_name')->textInput(['maxlength' => true])?>
+    <?= $form->field($model, 'true_name')->textInput(['maxlength' => 32])?>
 
-    <?= $form->field($model, 'mobile')->textInput(['maxlength' => true])?>
+    <?= $form->field($model, 'mobile')->textInput(['maxlength' => 11])?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true])?>
 
