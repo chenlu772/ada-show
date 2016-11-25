@@ -61,13 +61,13 @@ class Visitor extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => '用户ID，对应user表的id字段',
+            'user_id' => '用户ID',
             'occupation' => '职业',
             'true_name' => '称呼',
             'mobile' => '手机号码',
             'email' => '邮件地址',
             'message' => '留言',
-            'create_time' => 'Create Time',
+            'create_time' => '添加时间',
         ];
     }
 }

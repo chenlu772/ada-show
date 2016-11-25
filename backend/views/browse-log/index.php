@@ -31,10 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' =>'当前访问',
                 'format'=> 'raw',
                 'value' => function($data){
-                    if(mb_strlen($data->page_url, 'utf-8') > 121){
-                        return mb_substr($data->page_url, 21, 100, 'utf-8').'...';
+                    if(mb_strlen($data->page_url, 'utf-8') > 71){
+                        return mb_substr($data->page_url, 21, 50, 'utf-8').'...';
                     }else{
-                        return mb_substr($data->page_url, 21, 100, 'utf-8');
+                        return mb_substr($data->page_url, 21, 50, 'utf-8');
                     }
                 }
             ],
@@ -42,10 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' =>'来自',
                 'format'=> 'raw',
                 'value' => function($data){
-                    if(mb_strlen($data->page_referrer, 'utf-8') > 121){
-                        return mb_substr($data->page_referrer, 21, 100, 'utf-8').'...';
+                    if(mb_strlen($data->page_referrer, 'utf-8') > 71){
+                        return mb_substr($data->page_referrer, 21, 50, 'utf-8').'...';
                     }else{
-                        return mb_substr($data->page_referrer, 21, 100, 'utf-8');
+                        return mb_substr($data->page_referrer, 21, 50, 'utf-8');
                     }
                 }
             ],
@@ -53,8 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' =>'浏览器',
                 'format'=> 'raw',
                 'value' => function($data){
-                    if(mb_strlen($data->browser, 'utf-8') > 100){
-                        return mb_substr($data->browser, 0, 97, 'utf-8').'...';
+                    if(mb_strlen($data->browser, 'utf-8') > 50){
+                        return mb_substr($data->browser, 0, 47, 'utf-8').'...';
                     }else{
                         return $data->browser;
                     }

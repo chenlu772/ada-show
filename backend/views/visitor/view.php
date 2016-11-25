@@ -6,14 +6,13 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Visitor */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Visitors', 'url' => ['index']];
+$this->title = '访客详情：'.$model->id;
+$this->params['breadcrumbs'][] = ['label' => '访客记录', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="visitor-view">
-
+    <h1><?= Html::encode($this->title) ?></h1>
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -28,7 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'user_id',
-            'occupation',
+            [
+                'label' => '职业',
+                'value' => \backend\models\Visitor::$OCCUPATION[$model->occupation]
+            ],
             'true_name',
             'mobile',
             'email:email',

@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_id') ?>
 
-    <?= $form->field($model, 'occupation') ?>
+    <?= $form->field($model, 'occupation')->dropDownList(\backend\models\Visitor::$OCCUPATION) ?>
 
     <?= $form->field($model, 'true_name') ?>
 
@@ -38,9 +38,7 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
-    <div class="form-group">
-       <?= Html::a('Create Visitor', ['create'], ['class' => 'btn btn-success']) ?>
-    </div>
+
     <?php ActiveForm::end(); ?>
 
 </div>

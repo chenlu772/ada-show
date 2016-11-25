@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\BrowseLog */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Browse Logs', 'url' => ['index']];
+$this->title = '浏览详情：'.$model->id;
+$this->params['breadcrumbs'][] = ['label' => '浏览记录', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="browse-log-view">
@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [

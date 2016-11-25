@@ -61,10 +61,12 @@ class VisitorSearch extends Visitor
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,
-            'occupation' => $this->occupation,
             'mobile' => $this->mobile,
-            'create_time' => $this->create_time,
         ]);
+
+        if($this->occupation){
+            $query->andFilterWhere(['occupation' => $this->occupation]);
+        }
 
         $query->andFilterWhere(['like', 'true_name', $this->true_name])
             ->andFilterWhere(['like', 'email', $this->email]);

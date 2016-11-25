@@ -7,10 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\VisitorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Visitors';
+$this->title = '访客记录';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="visitor-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
     <div class="box box-success">
         <div class="box-body">
             <?php echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -21,17 +23,27 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'user_id',
-            'occupation',
+            [
+                'label' => '职业',
+                'value' => function($data){
+                    return \backend\models\Visitor::$OCCUPATION[$data->occupation];
+                }
+            ],
             'true_name',
             'mobile',
-            // 'email:email',
-            // 'create_time',
+            'email:email',
+            [
+                'label' => '添加时间',
+                'value' => function($data){
+                    return date('Y-m-d H:i:s', strtotime($data->create_time));
+                }
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','template'=>'{view}{delete}'],
         ],
     ]); ?>
    		</div>
