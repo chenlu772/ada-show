@@ -23,6 +23,5 @@ $this->title = '';
         <li>老板</li>
         <li>其他</li>
     </ul>
-
+    <center><button class="btn btn-primary btn-lg" style="margin-top: 5%">确 定</button></center>
 </div>
-
