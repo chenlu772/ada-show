@@ -16,3 +16,9 @@
     margin: 50px auto;
 }
 
+#web input{
+    display: block;
+    margin: 50px auto;
+    width: 120px;
+    height: 60px;
+}
