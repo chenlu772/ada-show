@@ -44,8 +44,9 @@ class Visitor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'occupation', 'mobile', 'create_time'], 'integer'],
+            [['user_id', 'occupation', 'create_time'], 'integer'],
             [['occupation'], 'required'],
+            [['mobile'], 'string', 'max' => 11],
             [['true_name'], 'string', 'max' => 32],
             [['email'], 'string', 'max' => 64],
             ['email', 'email'],

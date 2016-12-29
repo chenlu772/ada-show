@@ -23,16 +23,16 @@ $this->title = '';
 </div>
 <?php $this->beginBlock('js');?>
 <script>
-    $(function(){
-        $("#web").find("ul").children("li").click(function(){
-            $(this).css("font-weight","bold").siblings().css("font-weight","normal");
-            $(this).css("border","solid #286090 1px").siblings().css("border","solid #999 1px");
-            $("#web").find("input").prop("disabled",false).addClass('btn-primary');
-        })
+
+    $("#web").find("ul").children("li").click(function(){
+        $(this).addClass("on").siblings().removeClass("on");
+        $(this).css("border","solid #286090 1px").siblings().css("border","solid #999 1px");
+        $("#web").find("input").prop("disabled",false).addClass('btn-primary');
     });
 
     $(".btn").click(function () {
-        var occupation = '';
+        var occupation = $("#web ul li[class='on']").val();
+
         window.location.href = '<?= Yii::$app->urlManager->createUrl(['visitor/create', 'occupation'=>''])?>' + occupation;
     });
 </script>

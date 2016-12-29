@@ -1,3 +1,6 @@
+#web ul{
+    overflow: hidden;
+}
 #web ul li{
     list-style: none;
     width: 20%;
@@ -5,11 +8,14 @@
     line-height: 100px;
     border: solid #999 1px;
     float: left;
-    margin-right: 4%;
+    margin: 0 2.4%;
     margin-bottom: 30px;
     text-align: center;
     border-radius: 3%;
-
+    cursor: pointer;
+}
+#web ul .on{
+    font-weight: bold;
 }
 #web h1{
     text-align: center;

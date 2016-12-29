@@ -21,7 +21,7 @@ $this->title = '';
             <p><a href="#">自我陈述</a></p>
             <p><a href="http://blog.csdn.net/ch_lu" target="_blank">我的博客</a></p>
             <p><a href="https://github.com/chenlu772" target="_blank">我的项目</a></p>
-            <p><a href="#">留下足迹</a></p>
+            <p><a href="<?= Yii::$app->urlManager->createUrl(['visitor/index'])?>">留下足迹</a></p>
         </div>
 
     </div>
