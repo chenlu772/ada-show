@@ -5,8 +5,9 @@
     display: inline-block;
     text-decoration: none;
     font-size: 14px;
-    margin: 0 10px;
+    margin: 0 2.1%;
     color: #666;
+    width: 20%;
 }
 #footer p{
     text-decoration: none;
