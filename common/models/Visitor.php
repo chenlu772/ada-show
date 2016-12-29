@@ -19,7 +19,6 @@ class Visitor extends \yii\db\ActiveRecord
 {
 
     public static $OCCUPATION = [
-        '0' => '',
         '1' => 'HR',
         '2' => '开发',
         '3' => '测试',

@@ -5,6 +5,7 @@
  * Date: 2016/11/25
  * Time: 13:51
  */
+use frontend\models\Visitor;
 
 $this->title = '';
 ?>
@@ -14,14 +15,25 @@ $this->title = '';
 <div id="web">
     <h1>请问您是?</h1>
     <ul>
-        <li>HR</li>
-        <li>开发</li>
-        <li>测试</li>
-        <li>产品</li>
-        <li>猎头</li>
-        <li>主管</li>
-        <li>老板</li>
-        <li>其他</li>
+        <?php foreach(Visitor::$OCCUPATION as $k=>$v) {?>
+        <li value="<?= $k?>"><?= $v?></li>
+        <?php }?>
     </ul>
-    <input type="button" value="确定" name="" class="btn btn-primary">
+    <input type="button" value="确定"  class="btn" disabled="disabled">
 </div>
+<?php $this->beginBlock('js');?>
+<script>
+    $(function(){
+        $("#web").find("ul").children("li").click(function(){
+            $(this).css("font-weight","bold").siblings().css("font-weight","normal");
+            $(this).css("border","solid #286090 1px").siblings().css("border","solid #999 1px");
+            $("#web").find("input").prop("disabled",false).addClass('btn-primary');
+        })
+    });
+
+    $(".btn").click(function () {
+        var occupation = '';
+        window.location.href = '<?= Yii::$app->urlManager->createUrl(['visitor/create', 'occupation'=>''])?>' + occupation;
+    });
+</script>
+<?php $this->endBlock();?>
