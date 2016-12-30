@@ -1,5 +1,6 @@
 #web ul{
     overflow: hidden;
+    padding-right: 40px;
 }
 #web ul li{
     list-style: none;
