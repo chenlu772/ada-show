@@ -26,7 +26,7 @@ $this->title = '';
 
     $("#web").find("ul").children("li").click(function(){
         $(this).addClass("on").siblings().removeClass("on");
-        $(this).css("border","solid #286090 1px").siblings().css("border","solid #999 1px");
+        $(this).children("div").css("border","solid #286090 1px").parent().siblings().children("div").css("border","solid #999 1px");
         $("#web").find("input").prop("disabled",false).addClass('btn-primary');
     });
 
