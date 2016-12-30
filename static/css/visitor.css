@@ -6,13 +6,16 @@
     width: 20%;
     height: 100px;
     line-height: 100px;
-    border: solid #999 1px;
+/*    border: solid #999 1px;*/
     float: left;
-    margin: 0 2.4%;
+    margin: 0 2.5%;
     margin-bottom: 30px;
     text-align: center;
     border-radius: 3%;
     cursor: pointer;
+}
+#web ul li div{
+    border: solid #999 1px;
 }
 #web ul .on{
     font-weight: bold;

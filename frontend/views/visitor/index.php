@@ -16,7 +16,7 @@ $this->title = '';
     <h1>请问您是?</h1>
     <ul>
         <?php foreach(Visitor::$OCCUPATION as $k=>$v) {?>
-        <li value="<?= $k?>"><?= $v?></li>
+        <li value="<?= $k?>"><div><?= $v?></div></li>
         <?php }?>
     </ul>
     <input type="button" value="确定"  class="btn" disabled="disabled">
