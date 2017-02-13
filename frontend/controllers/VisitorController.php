@@ -7,6 +7,7 @@
  */
 namespace frontend\controllers;
 
+use common\models\Base;
 use frontend\models\Visitor;
 use Yii;
 
@@ -40,6 +41,12 @@ class VisitorController extends BaseController {
                 'model' => $model,
             ]);
         }
+
+    }
+
+    public function actionInfo(){
+        var_dump(Base::isMobile());
+        var_dump(Base::isWeChatBrowser());
 
     }
 
