@@ -2,8 +2,10 @@
 namespace frontend\controllers;
 
 use common\models\SendMailLog;
+use common\models\Upload;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -12,6 +14,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\UploadedFile;
+use common\models\UploadForm;
 
 /**
  * Site controller
@@ -215,6 +219,37 @@ class SiteController extends BaseController
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstances($model, 'file');
+
+            if ($model->file && $model->validate()) {
+                foreach ($model->file as $file) {
+                    $file->saveAs(Yii::getAlias('@upload') . "/" . $file->baseName . '.' . $file->extension);
+                }
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
+    }
+
+
+    public function actionUploadImg(){
+
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstances($model, 'file');
+            $upload = new Upload();
+            //var_dump(ArrayHelper::toArray($model->file)[0]);die;
+            return json_encode($upload->saveImg(ArrayHelper::toArray($model->file)[0]));
+        }
     }
 
 }
