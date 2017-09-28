@@ -1,6 +1,9 @@
 <?php
 namespace frontend\controllers;
 
+use common\component\ConsumerDemo;
+use common\component\ReceiveAlicomMsg;
+use common\component\sms;
 use common\models\SendMailLog;
 use common\models\Upload;
 use Yii;
@@ -16,6 +19,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\web\UploadedFile;
 use common\models\UploadForm;
+use common\component\CreateQueueAndSendMessage;
+use common\component\PublishBatchSMSMessageDemo;
 
 /**
  * Site controller
@@ -250,6 +255,31 @@ class SiteController extends BaseController
             //var_dump(ArrayHelper::toArray($model->file)[0]);die;
             return json_encode($upload->saveImg(ArrayHelper::toArray($model->file)[0]));
         }
+    }
+
+    public function actionMnsTest(){
+
+        $model = new PublishBatchSMSMessageDemo(Yii::$app->params['accessId'],Yii::$app->params['accessKey'],Yii::$app->params['endPoint']);
+        $model->run();
+    }
+
+    public function actionMnsTest2(){
+        set_time_limit(0);
+        $model = new CreateQueueAndSendMessage(Yii::$app->params['accessId'],Yii::$app->params['accessKey'],Yii::$app->params['endPoint']);
+        $model->run();
+    }
+
+    public function actionMnsTest3(){
+
+        $model = new ReceiveAlicomMsg(Yii::$app->params['accessId'],Yii::$app->params['accessKey']);
+
+        $model->receiveMsg();
+
+    }
+
+    public function actionMnsTest4(){
+        $model = new ConsumerDemo(Yii::$app->params['accessId'],Yii::$app->params['accessKey'],Yii::$app->params['endPoint']);
+        $model->run();
     }
 
 }
