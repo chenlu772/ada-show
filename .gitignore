@@ -31,4 +31,9 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
 /frontend/web/jd_root.txt
+
+
+/static/upload
+
