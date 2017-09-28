@@ -1,11 +1,13 @@
-/*@charset "utf-8";*{padding:0;margin:0;}
+/*
+@charset "utf-8";*{padding:0;margin:0;}
 div{font-family:"微软雅黑";font-size:14px;color:#666;padding:0;margin:0;}
-body{background:#eee;}*/
+body{background:#eee;}
+*/
 
 /*css3实现照片墙的样式*/
-.container{width:960px;height:450px;margin:60px auto;position:relative;}
-.container img{position:absolute;padding:10px 10px 15px;background:#fff;border:1px solid #ddd;-webkit-transition:1s ;-moz-transition:1s ;transition:1s ;z-index:1;}
-.container img:hover{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);transform:rotate(0deg);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);transform:scale(1.1);-webkit-box-shadow:5px 5px 5px #ddd;-moz-box-shadow:5px 5px 5px #ddd;box-shadow:5px 5px 5px #ddd;z-index:2;cursor:pointer;}
+.cont{width:960px;height:450px;margin:60px auto;position:relative;}
+.cont img{position:absolute;padding:10px 10px 15px;background:#fff;border:1px solid #ddd;-webkit-transition:1s ;-moz-transition:1s ;transition:1s ;z-index:1;}
+.cont img:hover{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);transform:rotate(0deg);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);transform:scale(1.1);-webkit-box-shadow:5px 5px 5px #ddd;-moz-box-shadow:5px 5px 5px #ddd;box-shadow:5px 5px 5px #ddd;z-index:2;cursor:pointer;}
 .pic1{top:0px;left:400px;-webkit-transform:rotate(-5deg);-moz-transform:rotate(-5deg);transform:rotate(-5deg);}
 .pic2{top:0px;left:600px;-webkit-transform:rotate(-20deg);-moz-transform:rotate(-20deg);transform:rotate(-20deg);}
 .pic3{bottom:0;right:0;-webkit-transform:rotate(5deg);-moz-transform:rotate(5deg);transform:rotate(5deg);}

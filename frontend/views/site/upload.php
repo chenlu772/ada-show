@@ -25,8 +25,8 @@ use yii\widgets\ActiveForm;
 <?php $this->endBlock();?>
 
 <div class="site-upload">
-<div class="container">
-    <img src="<?=Yii::getAlias('@static')?>/img/mm2.jpg" class="pic1"  />
+<div class="cont">
+    <img src="<?=Yii::getAlias('@static')?>/img/mm1.jpg" class="pic1"  />
     <img src="<?=Yii::getAlias('@static')?>/img/mm2.jpg" class="pic2"  />
     <img src="<?=Yii::getAlias('@static')?>/img/mm3.jpg" class="pic3"  />
     <img src="<?=Yii::getAlias('@static')?>/img/mm4.jpg" class="pic4"  />
