@@ -12,16 +12,12 @@ $this->title = '';
         <div id="banner">
             <img src="<?=Yii::getAlias('@static')?>/img/ch-lu.png" />
         </div>
-<!--        <div id="index-nav">
-            <a href="?"><span class="ring">我是伯乐</span></a>
-            <a href="?"><span class="ring">我是千里马</span></a>
-            <a href="?"><span class="ring">留下足迹</span></a>
-        </div>-->
+
         <div id="main">
             <p><a href="#">自我陈述</a></p>
             <p><a href="http://blog.csdn.net/ch_lu" target="_blank">我的博客</a></p>
             <p><a href="https://github.com/chenlu772" target="_blank">我的项目</a></p>
-            <p><a href="<?= Yii::$app->urlManager->createUrl(['visitor/index'])?>">留下足迹</a></p>
+            <p><a href="<?php echo Yii::$app->urlManager->createUrl(['visitor/index'])?>">留下足迹</a></p>
         </div>
 
     </div>
