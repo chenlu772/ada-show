@@ -50,7 +50,7 @@ class TokenGetterForAlicom
     }
 
 
-    public function __construct($accesskey,$accessSecret) {        
+    public function __construct($accesskey,$accessSecret) {
         $this->accesskey = $accesskey;
         $this->accessSecret = $accessSecret;      
         $this->init($accesskey,$accessSecret);                
@@ -58,9 +58,9 @@ class TokenGetterForAlicom
 
 
     public function init($accessKey,$accessSecret) {
-       #DefaultProfile::addEndpoint("cn-hangzhou","cn-hangzhou","Dybaseapi","dybaseapi.aliyuncs.com");
+       DefaultProfile::addEndpoint("cn-hangzhou","cn-hangzhou","Dybaseapi","dybaseapi.aliyuncs.com");
        $iClientProfile = DefaultProfile::getProfile("cn-hangzhou", $accessKey, $accessSecret);       
-       echo $accesskey;
+       //echo $accesskey;
        $this->iAcsClient = new DefaultAcsClient($iClientProfile);  
      
     }
