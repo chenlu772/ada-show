@@ -24,7 +24,7 @@ class PoetryController extends BaseController{
         $code = Yii::$app->request->get('code');
 
         $model = new weChat();
-        print_r($model->jscode2session($code));
+        $wechatData = $model->jscode2session($code);
 
     }
 

@@ -21,6 +21,10 @@ class weChat
             '&grant_type=authorization_code';
         $ret = CommonFunc::curlGet($url);
 
+
+
+
+
         return $ret;
     }
 
