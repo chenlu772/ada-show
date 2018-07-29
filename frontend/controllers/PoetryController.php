@@ -33,7 +33,7 @@ class PoetryController extends BaseController{
         $model = new Poetry();
         $poetry= $model->getOnePoetry();
 
-        print_r($poetry);
+        return json_encode($poetry);
     }
 
 
