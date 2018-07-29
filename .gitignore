@@ -36,4 +36,4 @@ phpunit.phar
 
 
 /static/upload
-
+/frontend/web/.well-known/
