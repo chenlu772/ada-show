@@ -26,6 +26,11 @@ class PoetryController extends BaseController{
         $model = new weChat();
         $wechatData = $model->jscode2session($code);
 
+        if ($wechatData){
+            return json_encode($wechatData);
+        }
+
+        return false;
     }
 
     public function actionOnePoetry(){

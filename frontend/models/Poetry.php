@@ -12,6 +12,7 @@ class Poetry extends \common\models\Poetry
 {
 
     public function getOnePoetry(){
+
         $poetry = '';
         while (empty($poetry)){
             $randNum = rand(1, Yii::$app->params['poetry_maxNum']);
