@@ -27,17 +27,22 @@ class PoetryController extends BaseController{
         $wechatData = $model->jscode2session($code);
 
         if ($wechatData){
-            return json_encode($wechatData);
+            return $this->success($wechatData);
         }
 
-        return false;
+        return $this->fail('操作失败');
     }
 
     public function actionOnePoetry(){
 
+        $userId = Yii::$app->session->get('user_id');
+        if (!$userId){
+            return $this->fail('未授权登录');
+        }
+
         $model = new Poetry();
         $poetry= $model->getOnePoetry();
 
-        return json_encode($poetry);
+        return $this->success($poetry);
     }
 }

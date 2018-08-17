@@ -33,4 +33,20 @@ class BaseController extends Controller {
         return parent::afterAction($action, $result);
     }
 
+
+    public function success($data)
+    {
+        return json_encode([
+            'status'    => 0,
+            'data'      => $data,
+        ]);
+    }
+
+    public function fail($msg)
+    {
+        return json_encode([
+            'status'    => 0,
+            'msg'      => $msg,
+        ]);
+    }
 }

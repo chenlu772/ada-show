@@ -71,7 +71,11 @@ class weChat
                     ];
 
                     if ($tokenModel->load($tokenData) && $tokenModel->save($tokenData)){
+
+                        Yii::$app->session->set('user_id', $tokenData['user_id']);
+                        Yii::$app->session->set('token', $tokenData['token']);
                         unset($tokenData['user_id']);
+
                         return $tokenData;
                     }
                 }
@@ -97,7 +101,8 @@ class weChat
                     $tokenUser->expires_time = $expiresTime;
                     $tokenUser->save();
                 }
-
+                Yii::$app->session->set('user_id', $userInfo->user_id);
+                Yii::$app->session->set('token', $token);
                 return $token;
             }
 
