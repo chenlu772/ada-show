@@ -41,7 +41,7 @@ class PoetryController extends BaseController{
         }
 
         $model = new Poetry();
-        $poetry= $model->getOnePoetry();
+        $poetry= $model->getOnePoetry($userId);
 
         return $this->success($poetry);
     }

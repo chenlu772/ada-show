@@ -13,7 +13,7 @@ class UserToken extends \yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'user_token';
+        return 'p_user_token';
     }
 
     /**

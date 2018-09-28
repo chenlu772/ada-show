@@ -1,20 +1,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: chen
- * Date: 2018/7/28
- * Time: 18:12
+ * User: Lu.Chen
+ * Date: 2018/8/20
+ * Time: 11:03
  */
-
 namespace common\models;
 
-class UserInfo extends \yii\db\ActiveRecord
+use Yii;
+class UserPoetry extends \yii\db\ActiveRecord
 {
-
-
     public static function tableName()
     {
-        return 'p_user_info';
+        return 'p_user_poetry';
     }
 
     /**
@@ -23,8 +21,8 @@ class UserInfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id'], 'integer'],
-            [['open_id', 'union_id', 'session_key'], 'string', 'max' => 64],
+            [['user_id','poetry_id'], 'integer'],
+            [['date'], 'string'],
         ];
     }
 
@@ -34,10 +32,10 @@ class UserInfo extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'user_id' => 'ID',
-            'open_id' => 'openId',
-            'union_id' => 'unionId',
-            'session_key' => '',
+            'user_poetry_id' => 'ID',
+            'user_id' => '用户ID',
+            'poetry_id' => '诗词ID',
+            'date' => '日期',
             'create_at' => '创建时间',
         ];
     }

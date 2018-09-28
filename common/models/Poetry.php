@@ -12,7 +12,7 @@ class Poetry extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {
-        return 'poetry';
+        return 'p_poetry';
     }
 
     /**
