@@ -23,13 +23,13 @@ class weChat
             '&secret='.Yii::$app->params['poetry_appSecret'].
             '&js_code='.$code.
             '&grant_type=authorization_code';
-        //$ret = CommonFunc::curlGet($url);
+        $ret = CommonFunc::curlGet($url);
 
-        $ret = [
+/*        $ret = [
             'session_key'=> 'LPwUCt9dBpy6tANXYrsFnQ==',
             'expires_in' => 7200,
             'openid'     => 'oXaXz0A-g8V3B6CUWIaoLNDnZ9PM'
-        ];
+        ];*/
 
         if (isset($ret['session_key'])){
 
